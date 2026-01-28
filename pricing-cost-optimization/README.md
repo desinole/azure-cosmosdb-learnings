@@ -18,11 +18,11 @@ This section covers learnings related to pricing and cost optimization in Azure 
 ### Throughput Modes
 Document when to use each throughput mode for optimal cost-efficiency.
 
-| Mode | Best For | Cost Pattern |
-|------|----------|--------------|
-| Provisioned | Predictable workloads | Pay for provisioned RU/s |
-| Autoscale | Variable workloads | Pay for actual usage (within limits) |
-| Serverless | Sporadic/unpredictable | Pay per request |
+| Mode        | Best For                 | Cost Pattern                  |
+|-------------|--------------------------|-------------------------------|
+| Provisioned | Predictable workloads    | Pay for provisioned RU/s      |
+| Autoscale   | Variable workloads       | Pay for actual usage (within limits) |
+| Serverless  | Sporadic/unpredictable   | Pay per request               |
 
 ### RU Optimization
 Learn techniques to reduce RU consumption without sacrificing functionality.

@@ -16,13 +16,13 @@ This section covers learnings related to consistency levels in Azure Cosmos DB.
 ### Consistency Level Comparison
 Document the characteristics and use cases for each consistency level.
 
-| Consistency Level | Latency | Throughput | Use Cases |
-|-------------------|---------|------------|-----------|
-| Strong | Highest | Lowest | Financial transactions, inventory |
-| Bounded Staleness | High | Low | Time-sensitive reads with acceptable lag |
-| Session | Medium | Medium | User sessions, shopping carts |
-| Consistent Prefix | Low | High | Social feeds, comments |
-| Eventual | Lowest | Highest | Telemetry, analytics |
+| Consistency Level  | Latency | Throughput | Use Cases                             |
+|--------------------|---------|------------|---------------------------------------|
+| Strong             | Highest | Lowest     | Financial transactions, inventory     |
+| Bounded Staleness  | High    | Low        | Time-sensitive reads with acceptable lag |
+| Session            | Medium  | Medium     | User sessions, shopping carts         |
+| Consistent Prefix  | Low     | High       | Social feeds, comments                |
+| Eventual           | Lowest  | Highest    | Telemetry, analytics                  |
 
 ### Session Consistency
 Learn about managing session tokens for session consistency across clients.
