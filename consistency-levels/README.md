@@ -42,6 +42,6 @@ Understand consistency guarantees in globally distributed deployments.
 
 ## Resources
 
-- [Consistency levels](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
-- [Consistency tradeoffs](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs)
-- [Choose the right consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing)
+- [Consistency levels](https://learn.microsoft.com/azure/cosmos-db/consistency-levels)
+- [Consistency tradeoffs](https://learn.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs)
+- [Choose the right consistency level](https://learn.microsoft.com/azure/cosmos-db/consistency-levels-choosing)

@@ -40,6 +40,6 @@ Understand optimal SDK settings for your workload patterns.
 
 ## Resources
 
-- [Performance tips](https://docs.microsoft.com/azure/cosmos-db/performance-tips)
-- [Query optimization](https://docs.microsoft.com/azure/cosmos-db/sql-query-getting-started)
-- [Indexing policies](https://docs.microsoft.com/azure/cosmos-db/index-policy)
+- [Performance tips](https://learn.microsoft.com/azure/cosmos-db/performance-tips)
+- [Query optimization](https://learn.microsoft.com/azure/cosmos-db/sql-query-getting-started)
+- [Indexing policies](https://learn.microsoft.com/azure/cosmos-db/index-policy)

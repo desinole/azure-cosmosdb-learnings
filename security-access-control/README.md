@@ -40,6 +40,6 @@ Understand compliance certifications and data residency requirements.
 
 ## Resources
 
-- [Security in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-security)
-- [Azure AD authentication](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac)
-- [Network security](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint)
+- [Security in Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/database-security)
+- [Azure AD authentication](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-rbac)
+- [Network security](https://learn.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint)

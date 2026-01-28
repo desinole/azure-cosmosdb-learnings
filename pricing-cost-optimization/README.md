@@ -52,7 +52,7 @@ Share strategies for tracking and managing costs effectively.
 
 ## Resources
 
-- [Pricing model](https://docs.microsoft.com/azure/cosmos-db/understand-your-bill)
-- [Cost optimization](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs)
+- [Pricing model](https://learn.microsoft.com/azure/cosmos-db/understand-your-bill)
+- [Cost optimization](https://learn.microsoft.com/azure/cosmos-db/plan-manage-costs)
 - [Capacity calculator](https://cosmos.azure.com/capacitycalculator/)
-- [Reserved capacity](https://docs.microsoft.com/azure/cosmos-db/cosmos-db-reserved-capacity)
+- [Reserved capacity](https://learn.microsoft.com/azure/cosmos-db/cosmos-db-reserved-capacity)

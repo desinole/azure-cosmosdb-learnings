@@ -38,5 +38,5 @@ Understand how to identify and optimize expensive queries.
 
 ## Resources
 
-- [Monitor Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db)
-- [Diagnostic queries](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-monitor-resource-logs)
+- [Monitor Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/monitor-cosmos-db)
+- [Diagnostic queries](https://learn.microsoft.com/azure/cosmos-db/cosmosdb-monitor-resource-logs)

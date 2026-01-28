@@ -32,5 +32,5 @@ Learn about different conflict resolution modes and when to use each.
 
 ## Resources
 
-- [Distribute data globally](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally)
-- [Multi-region writes](https://docs.microsoft.com/azure/cosmos-db/how-to-multi-master)
+- [Distribute data globally](https://learn.microsoft.com/azure/cosmos-db/distribute-data-globally)
+- [Multi-region writes](https://learn.microsoft.com/azure/cosmos-db/how-to-multi-master)

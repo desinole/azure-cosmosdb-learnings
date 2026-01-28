@@ -40,6 +40,6 @@ Understand how to leverage schema flexibility while maintaining data integrity.
 
 ## Resources
 
-- [Data modeling](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
-- [Partition key strategies](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview)
-- [Real-world data modeling examples](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
+- [Data modeling](https://learn.microsoft.com/azure/cosmos-db/modeling-data)
+- [Partition key strategies](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview)
+- [Real-world data modeling examples](https://learn.microsoft.com/azure/cosmos-db/how-to-model-partition-example)

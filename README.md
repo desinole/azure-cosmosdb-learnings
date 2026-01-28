@@ -52,7 +52,7 @@ Contributions are welcome! If you have learnings, tips, or best practices to sha
 
 ## 📖 Additional Resources
 
-- [Azure Cosmos DB Official Documentation](https://docs.microsoft.com/azure/cosmos-db/)
+- [Azure Cosmos DB Official Documentation](https://learn.microsoft.com/azure/cosmos-db/)
 - [Azure Cosmos DB Blog](https://devblogs.microsoft.com/cosmosdb/)
 - [Azure Cosmos DB Capacity Calculator](https://cosmos.azure.com/capacitycalculator/)
 
