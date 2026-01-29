@@ -22,18 +22,11 @@ Here’s a **clean comparison table** you can drop directly into a doc or slide,
 
 ***
 
-### Recommended Operational Pattern (1‑liner)
+### Recommended Operational Pattern
 
 *   **Use Activity Log alerts as the source of truth for failover detection**
 *   **Use Service Health alerts for outage context and external communications**
 *   **Use Metrics & Logs to understand customer impact and perform RCA**
-
-If you want, I can:
-
-*   Convert this into a **single leadership slide**
-*   Mark which alerts should page **ACE On‑Call vs PG On‑Call**
-*   Add **recommended alert severity & wiring (Sev‑2 vs Sev‑1)**
-
 
 ***
 
