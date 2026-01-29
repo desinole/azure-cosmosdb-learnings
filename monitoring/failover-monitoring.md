@@ -6,26 +6,24 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 
 ## Quick summary of alerting options
 
-Here’s a **clean comparison table** you can drop directly into a doc or slide, categorizing the **available alert options for Cosmos DB failovers**, split by type and intent.
-
 ***
 
-### Cosmos DB Failover Alert Options – Comparison Table
+### Cosmos DB Failover Alert Options
 
 | Alert Type                                           | Signal Source                                           | Detects Automatic (Service‑Managed) Failover | Detects Forced (Manual) Failover | Scope                           | Reliability for Failover Detection | Primary Use Case                                      | Notes / Limitations                                                                |
 | ---------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------- | -------------------------------- | ------------------------------- | ---------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Azure Service Health Alerts**                      | Service Health (Incidents / Advisories)                 | ✅ *Indirect*                                 | ❌                                | Subscription / Region / Service | **Low–Medium**                     | Platform‑declared outages, executive & customer comms | Does **not guarantee** a failover occurred; some failovers happen without a Service Health incident | Azure Activity Log (`Region Failed Over (Platform)`)    | ✅                                            | ✅                                | Cosmos DB account               | **High**                           | **Primary failover detection & paging**               | Most authoritative signal that a failover actually happened; requires alert rule setup |
+| **Azure Service Health Alerts**                      | Service Health (Incidents / Advisories)                 | ✅ *Indirect*                                 | ❌                                | Subscription / Region / Service | **Low**                     | Platform‑declared outages, executive & customer comms | Does **not guarantee** a failover occurred; some failovers happen without a Service Health incident | Azure Activity Log (`Region Failed Over (Platform)`)    | ✅                                            | ✅                                | Cosmos DB account               | **High**                           | **Primary failover detection & paging**               | Most authoritative signal that a failover actually happened; requires alert rule setup |
 | **Azure Monitor Logs (Diagnostics + Log Analytics)** | Cosmos DB control‑plane diagnostics                     | ✅                                            | ✅                                | Cosmos DB account               | **High (Post‑event)**              | RCA, audits, timeline reconstruction                  | Not ideal for real‑time paging; requires diagnostics enabled |
 | **Metrics‑Based Alerts**                             | Azure Monitor metrics (latency, errors, RU spikes)      | ❌                                            | ❌                                | Account / container / region    | **Low**                            | Detect customer impact symptoms                       | Indicates degradation, **not** a failover event itself |
-| **Client / SDK Detection**                           | Application telemetry (write endpoint changes, retries) | ✅ *Observed*                                 | ✅ *Observed*                     | Application                     | **Low–Medium**                     | Supplemental signal from app perspective              | Non‑authoritative; app‑dependent; varies by SDK behavior |
+| **Client / SDK Detection**                           | Application telemetry (write endpoint changes, retries) | ✅ *Observed*                                 | ✅ *Observed*                     | Application                     | **Low**                     | Supplemental signal from app perspective              | Non‑authoritative; app‑dependent; varies by SDK behavior |
 
 ***
 
 ### Recommended Operational Pattern
 
-*   **Use Activity Log alerts as the source of truth for failover detection**
-*   **Use Service Health alerts for outage context and external communications**
-*   **Use Metrics & Logs to understand customer impact and perform RCA**
+*   Use Activity Log alerts as the source of truth for failover detection
+*   Use Service Health alerts for outage context and external communications
+*   Use Metrics & Logs to understand customer impact and perform RCA
 
 ***
 
