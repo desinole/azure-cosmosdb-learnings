@@ -1,4 +1,39 @@
-Below is a **clear breakdown of the options available to capture Cosmos DB failovers using Service Health / Azure monitoring**, **split by alert type**, and grounded in documented behavior. I’ve also called out **what each option can and cannot reliably capture** so this can be used in an ops design or leadership discussion.
+# Failover monitoring strategies for Azure Cosmos DB
+
+When operating globally distributed Azure Cosmos DB accounts, it’s critical to monitor for failover events. Failovers can be either:
+1. **Service‑managed (automatic)** due to regional outages
+2. **Forced (manual)** via user‑initiated actions
+
+## Quick summary of alerting options
+
+Here’s a **clean comparison table** you can drop directly into a doc or slide, categorizing the **available alert options for Cosmos DB failovers**, split by type and intent.
+
+***
+
+### Cosmos DB Failover Alert Options – Comparison Table
+
+| Alert Type                                           | Signal Source                                           | Detects Automatic (Service‑Managed) Failover | Detects Forced (Manual) Failover | Scope                           | Reliability for Failover Detection | Primary Use Case                                      | Notes / Limitations                                                                |
+| ---------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------- | -------------------------------- | ------------------------------- | ---------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Azure Service Health Alerts**                      | Service Health (Incidents / Advisories)                 | ✅ *Indirect*                                 | ❌                                | Subscription / Region / Service | **Low–Medium**                     | Platform‑declared outages, executive & customer comms | Does **not guarantee** a failover occurred; some failovers happen without a Service Health incident [\[Cosmos DB...G/CSS Sync | Meeting\]](https://teams.microsoft.com/l/meeting/details?eventId=AAMkADg5Yzk5YWI1LTk5ZmItNGQyZi1iYTg5LTkzYTQzYmIzOTY5NgFRAAgI3lL-3FbAAEYAAAAApD6QZWe5tkmKauhrrj5csgcADqW2AT2c-UerFB7cOBr6_wAAAAABDQAADqW2AT2c-UerFB7cOBr6_wAEw8R3DAAAEA%3d%3d) |
+| **Activity Log – Platform Event**                    | Azure Activity Log (`Region Failed Over (Platform)`)    | ✅                                            | ✅                                | Cosmos DB account               | **High**                           | **Primary failover detection & paging**               | Most authoritative signal that a failover actually happened; requires alert rule setup [\[MSFT - Ope...r activity | Meeting\]](https://teams.microsoft.com/l/meeting/details?eventId=AAMkADg5Yzk5YWI1LTk5ZmItNGQyZi1iYTg5LTkzYTQzYmIzOTY5NgBGAAAAAACkPpBlZ7m2SYpq6GuuPlyyBwAOpbYBPZz9R6sUHtw4Gvr7AAAAAAENAAAOpbYBPZz9R6sUHtw4Gvr7AARKIvBeAAA%3d)                                |
+| **Azure Monitor Logs (Diagnostics + Log Analytics)** | Cosmos DB control‑plane diagnostics                     | ✅                                            | ✅                                | Cosmos DB account               | **High (Post‑event)**              | RCA, audits, timeline reconstruction                  | Not ideal for real‑time paging; requires diagnostics enabled [\[MSFT Open...over drill | Meeting\]](https://teams.microsoft.com/l/meeting/details?eventId=AAMkADg5Yzk5YWI1LTk5ZmItNGQyZi1iYTg5LTkzYTQzYmIzOTY5NgBGAAAAAACkPpBlZ7m2SYpq6GuuPlyyBwAOpbYBPZz9R6sUHtw4Gvr7AAAAAAENAAAOpbYBPZz9R6sUHtw4Gvr7AARNXu72AAA%3d)                                                          |
+| **Metrics‑Based Alerts**                             | Azure Monitor metrics (latency, errors, RU spikes)      | ❌                                            | ❌                                | Account / container / region    | **Low**                            | Detect customer impact symptoms                       | Indicates degradation, **not** a failover event itself [\[MSFT Open...over drill | Meeting\]](https://teams.microsoft.com/l/meeting/details?eventId=AAMkADg5Yzk5YWI1LTk5ZmItNGQyZi1iYTg5LTkzYTQzYmIzOTY5NgBGAAAAAACkPpBlZ7m2SYpq6GuuPlyyBwAOpbYBPZz9R6sUHtw4Gvr7AAAAAAENAAAOpbYBPZz9R6sUHtw4Gvr7AARNXu72AAA%3d)                                                                |
+| **Client / SDK Detection**                           | Application telemetry (write endpoint changes, retries) | ✅ *Observed*                                 | ✅ *Observed*                     | Application                     | **Low–Medium**                     | Supplemental signal from app perspective              | Non‑authoritative; app‑dependent; varies by SDK behavior [\[MSFT - Ope...r activity | Meeting\]](https://teams.microsoft.com/l/meeting/details?eventId=AAMkADg5Yzk5YWI1LTk5ZmItNGQyZi1iYTg5LTkzYTQzYmIzOTY5NgBGAAAAAACkPpBlZ7m2SYpq6GuuPlyyBwAOpbYBPZz9R6sUHtw4Gvr7AAAAAAENAAAOpbYBPZz9R6sUHtw4Gvr7AARKIvBeAAA%3d)                                                              |
+
+***
+
+### Recommended Operational Pattern (1‑liner)
+
+*   **Use Activity Log alerts as the source of truth for failover detection**
+*   **Use Service Health alerts for outage context and external communications**
+*   **Use Metrics & Logs to understand customer impact and perform RCA**
+
+If you want, I can:
+
+*   Convert this into a **single leadership slide**
+*   Mark which alerts should page **ACE On‑Call vs PG On‑Call**
+*   Add **recommended alert severity & wiring (Sev‑2 vs Sev‑1)**
+
 
 ***
 
@@ -39,7 +74,7 @@ Below is a **clear breakdown of the options available to capture Cosmos DB failo
 
 ***
 
-## 2. Azure Activity Log (Control‑Plane) alerts — **Most reliable**
+## 2. Azure Activity Log (Control‑Plane) alerts : **Most reliable**
 
 **What they capture**
 
@@ -76,7 +111,7 @@ Below is a **clear breakdown of the options available to capture Cosmos DB failo
 
 ***
 
-## 3. Azure Monitor Logs (Log Analytics) — Correlative / advanced
+## 3. Azure Monitor Logs (Log Analytics) : Correlative / advanced
 
 **What they can capture**
 
@@ -137,7 +172,7 @@ Below is a **clear breakdown of the options available to capture Cosmos DB failo
 
 ***
 
-## 5. Client‑side detection (SDK‑based) – *Supplemental*
+## 5. Client‑side detection (SDK‑based) : *Supplemental*
 
 **What it captures**
 
@@ -167,14 +202,3 @@ Below is a **clear breakdown of the options available to capture Cosmos DB failo
 | **Client detection** | Supplemental telemetry          | ⚠️ Optional |
 
 ***
-
-## Bottom line (exec‑ready)
-
-> **Service Health alone is not sufficient to detect Cosmos DB failovers.**  
-> The **only reliable way to capture actual failover events** (automatic or forced) is via **Azure Activity Log alerts on Cosmos DB control‑plane signals**, supplemented by Service Health for outage context.
-
-If you want, next I can:
-
-*   Turn this into a **one‑page decision matrix**
-*   Provide **exact alert signal names** to standardize across customers
-*   Map alerts to **ACE on‑call response actions**
