@@ -181,15 +181,3 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
  [\[stackoverflow.com\]](https://stackoverflow.com/questions/61879775/cosmos-db-failover-alert)
 
 ***
-
-## Recommended alert strategy (concise)
-
-| Layer                | Purpose                         | Recommended |
-| -------------------- | ------------------------------- | ----------- |
-| **Activity Log**     | Detect that a failover occurred | ✅ Yes       |
-| **Service Health**   | Confirm platform outage         | ✅ Yes       |
-| **Metrics**          | Detect customer impact          | ✅ Yes       |
-| **Logs**             | RCA & audit                     | ✅ Optional  |
-| **Client detection** | Supplemental telemetry          | ⚠️ Optional |
-
-***
