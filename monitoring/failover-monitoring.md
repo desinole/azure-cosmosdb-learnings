@@ -61,7 +61,9 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 ✅ Best for: **Broad outage awareness**, **exec comms**, **incident confirmation**  
 ❌ Not sufficient for: **Operational detection of actual failovers**
 
- [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql), [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/azure/cosmos-db/monitor)
+Reference: 
+- [High Availability (Reliability) in Azure Cosmos DB for NoSQL | Microsoft Learn](https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql)
+- [Monitor - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/monitor)
 
 ***
 
@@ -98,7 +100,9 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 ✅ Best for: **Primary detection mechanism**, **on‑call alerting**, **audit trails**  
 ✅ Recommended default for Cosmos DB production accounts
 
- [\[stackoverflow.com\]](https://stackoverflow.com/questions/61879775/cosmos-db-failover-alert)
+Reference: 
+
+[Monitor - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/monitor)
 
 ***
 
@@ -133,7 +137,9 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 ✅ Best for: **Forensics, RCA, analytics**  
 ❌ Not recommended as first‑signal alert
 
- [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/azure/cosmos-db/create-alerts), [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/azure/cosmos-db/monitor)
+Reference: 
+
+[How to Audit Control Plane Operations - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-audit-control-plane-operations)
 
 ***
 
@@ -159,7 +165,9 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 ✅ Best for: **Impact detection**  
 ❌ Not failover‑aware
 
- [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/azure/cosmos-db/create-alerts)
+Reference: 
+
+[Create Alerts for Using Azure Monitor - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/monitor-create-alerts)
 
 ***
 
@@ -178,6 +186,8 @@ When operating globally distributed Azure Cosmos DB accounts, it’s critical to
 
 ✅ Useful as **additional context only**
 
- [\[stackoverflow.com\]](https://stackoverflow.com/questions/61879775/cosmos-db-failover-alert)
+Reference: 
+
+[Design Resilient Applications With Sdks - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/design-resilient-applications-with-sdks)
 
 ***
